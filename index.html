@@ -15,9 +15,21 @@
 
 body{
     font-family:Arial, sans-serif;
-    background:#0b0b0b;
+    background:#070707;
     color:white;
     overflow-x:hidden;
+}
+
+/* subtle rust fog background */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 30%, rgba(255,123,0,.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,123,0,.05), transparent 45%),
+    linear-gradient(180deg,#050505,#0b0b0b);
+    z-index:-1;
 }
 
 /* SCROLLBAR */
@@ -29,104 +41,137 @@ body{
     border-radius:10px;
 }
 
-/* NAV */
+/* TOP BAR (Rust style) */
 nav{
     position:fixed;
     top:0;
     width:100%;
     z-index:999;
-    background:rgba(0,0,0,.65);
+    background:rgba(0,0,0,.6);
     backdrop-filter:blur(12px);
-    padding:12px 0;
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,123,0,.15);
 }
 
 nav ul{
     display:flex;
     justify-content:center;
-    gap:40px;
+    gap:30px;
     list-style:none;
 }
 
 nav a{
-    color:#ddd;
+    color:#aaa;
     text-decoration:none;
-    font-size:15px;
+    font-size:14px;
+    letter-spacing:2px;
+    text-transform:uppercase;
     transition:.3s;
-    letter-spacing:1px;
 }
 
 nav a:hover{
     color:#ff7b00;
 }
 
-/* HERO (SMALLER + CLEANER) */
+/* MAIN MENU LAYOUT (Rust-like) */
 .hero{
-    height:70vh;
+    height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
-    text-align:center;
-    background:linear-gradient(135deg,#0b0b0b,#141414,#0b0b0b);
     position:relative;
 }
 
-.hero::before{
-    content:"";
+/* LEFT PANEL */
+.leftPanel{
     position:absolute;
-    width:350px;
-    height:350px;
-    background:radial-gradient(circle,rgba(255,123,0,.20),transparent 70%);
-    filter:blur(25px);
+    left:8%;
+    top:50%;
+    transform:translateY(-50%);
 }
 
-.hero h1{
-    font-size:65px;
+.title{
+    font-size:72px;
     color:#ff7b00;
-    text-shadow:0 0 20px #ff7b00;
-    letter-spacing:5px;
-    animation:glow 2.5s infinite alternate;
-    position:relative;
+    letter-spacing:6px;
+    text-shadow:0 0 25px rgba(255,123,0,.6);
 }
 
-.hero p{
-    font-size:18px;
+.subtitle{
+    color:#bbb;
     margin-top:10px;
-    color:#ccc;
-    position:relative;
+    letter-spacing:2px;
 }
 
-@keyframes glow{
-    from{ text-shadow:0 0 10px #ff7b00; }
-    to{ text-shadow:0 0 30px #ff7b00, 0 0 60px #ff7b00; }
+/* MENU BUTTONS (Rust main menu style) */
+.menu{
+    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    width:220px;
 }
 
-/* BUTTON */
-.btn{
-    display:inline-block;
-    margin-top:18px;
-    padding:12px 26px;
-    background:#ff7b00;
-    color:white;
+.menu a{
+    padding:12px;
+    background:rgba(20,20,20,.8);
+    border:1px solid rgba(255,123,0,.15);
+    color:#ddd;
     text-decoration:none;
-    border-radius:10px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:13px;
     transition:.3s;
-    font-weight:bold;
 }
 
-.btn:hover{
-    transform:scale(1.05);
-    background:#ff9a3d;
+.menu a:hover{
+    background:#ff7b00;
+    color:black;
+    transform:translateX(5px);
 }
 
-/* SECTIONS */
+/* RIGHT SERVER PANEL */
+.serverPanel{
+    position:absolute;
+    right:8%;
+    top:50%;
+    transform:translateY(-50%);
+    width:260px;
+    background:rgba(15,15,15,.7);
+    border:1px solid rgba(255,123,0,.15);
+    padding:20px;
+}
+
+.serverPanel h3{
+    color:#ff7b00;
+    margin-bottom:10px;
+    letter-spacing:2px;
+}
+
+.serverPanel p{
+    font-size:13px;
+    color:#bbb;
+    line-height:1.5;
+}
+
+.status{
+    margin-top:15px;
+    padding:8px;
+    background:rgba(0,0,0,.4);
+    border-left:3px solid #ff7b00;
+    font-size:12px;
+}
+
+/* SECTIONS (kept minimal like Rust UI pages) */
 section{
     padding:80px 10%;
 }
 
 .section-title{
-    font-size:38px;
+    font-size:34px;
     color:#ff7b00;
-    margin-bottom:35px;
+    margin-bottom:30px;
+    letter-spacing:2px;
     text-align:center;
 }
 
@@ -138,17 +183,15 @@ section{
 }
 
 .card{
-    background:#151515;
-    padding:22px;
-    border-radius:18px;
-    transition:.4s;
-    box-shadow:0 0 15px rgba(0,0,0,.4);
-    border:1px solid rgba(255,123,0,.08);
+    background:rgba(20,20,20,.7);
+    padding:20px;
+    border:1px solid rgba(255,123,0,.1);
+    transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 25px rgba(255,123,0,.25);
+    border-color:#ff7b00;
+    transform:translateY(-6px);
 }
 
 .card h3{
@@ -158,63 +201,55 @@ section{
 
 .card p{
     color:#bbb;
+    font-size:14px;
     line-height:1.5;
 }
 
-/* PARALLAX */
-.parallax{
-    height:40vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    background:linear-gradient(135deg,#111,#000,#111);
-    position:relative;
-    overflow:hidden;
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:10px 18px;
+    background:#ff7b00;
+    color:black;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:13px;
+    letter-spacing:1px;
+    transition:.3s;
 }
 
-.parallax::before{
-    content:"";
-    position:absolute;
-    width:400px;
-    height:400px;
-    background:radial-gradient(circle,rgba(255,123,0,.15),transparent 70%);
-    filter:blur(30px);
-}
-
-.parallax h2{
-    font-size:48px;
-    color:white;
-    text-shadow:0 0 20px black;
-    position:relative;
-}
-
-/* FADE */
-.fade{
-    opacity:0;
-    transform:translateY(40px);
-    transition:1s ease;
-}
-
-.fade.show{
-    opacity:1;
-    transform:translateY(0);
+.btn:hover{
+    background:#ff9a3d;
+    transform:scale(1.05);
 }
 
 /* FOOTER */
 footer{
     text-align:center;
-    padding:35px;
+    padding:30px;
     background:black;
-    color:#777;
+    color:#666;
+    font-size:12px;
+    letter-spacing:2px;
 }
 
 /* MOBILE */
-@media(max-width:768px){
-    .hero h1{ font-size:42px; }
-    .parallax h2{ font-size:30px; }
-    .section-title{ font-size:28px; }
-    nav ul{ gap:20px; }
+@media(max-width:900px){
+    .leftPanel, .serverPanel{
+        position:static;
+        transform:none;
+        text-align:center;
+        margin-top:120px;
+    }
+
+    .menu{
+        margin:20px auto;
+    }
+
+    .title{
+        font-size:42px;
+    }
 }
 </style>
 </head>
@@ -230,89 +265,82 @@ footer{
 </nav>
 
 <div class="hero">
-<div>
-<h1>ECLIPSE RUST</h1>
-<p>Survive. Build. Raid. Dominate.</p>
+
+<!-- LEFT MENU -->
+<div class="leftPanel">
+<div class="title">ECLIPSE</div>
+<div class="subtitle">RUST SERVER MAIN MENU</div>
+
+<div class="menu">
+<a href="#about">About</a>
+<a href="#weapons">Weapons</a>
+<a href="https://discord.gg/DP5CgTvq" target="_blank">Discord</a>
+<a href="#join">Play Now</a>
 </div>
 </div>
 
-<section id="about" class="fade">
-<h2 class="section-title">About</h2>
+<!-- RIGHT PANEL -->
+<div class="serverPanel">
+<h3>SERVER INFO</h3>
+<p>Eclipse Rust is a high-action survival server focused on PvP, raiding, and base building.</p>
 
+<div class="status">STATUS: ONLINE</div>
+<div class="status">WIPE: 2026-05-00</div>
+<div class="status">PLAYERS: 0/150</div>
+</div>
+
+</div>
+
+<section id="about">
+<h2 class="section-title">ABOUT</h2>
 <div class="cards">
 <div class="card">
-<h3>Big Map</h3>
-<p>Explore, raid, PvP, PvE, and loot across a massive survival world.</p>
+<h3>Massive World</h3>
+<p>Explore a dangerous survival map filled with loot, monuments, and PvP zones.</p>
 </div>
 
 <div class="card">
-<h3>Real PvP</h3>
-<p>Fight real players in intense combat and dominate the server.</p>
+<h3>Real Combat</h3>
+<p>Fast paced PvP inspired by Rust mechanics and survival gameplay.</p>
 </div>
 </div>
 </section>
 
-<div class="parallax">
-<h2>WELCOME TO ECLIPSE RUST</h2>
-</div>
-
-<section id="weapons" class="fade">
-<h2 class="section-title">Weapons</h2>
-
+<section id="weapons">
+<h2 class="section-title">WEAPONS</h2>
 <div class="cards">
 <div class="card">
-<h3>Guns & Items</h3>
-<p>Balanced weapons, skins, and loot systems.</p>
+<h3>Guns</h3>
+<p>Balanced weapon system with progression and loot drops.</p>
 </div>
 
 <div class="card">
 <h3>Explosives</h3>
-<p>Raid bases and control the battlefield.</p>
+<p>Raid bases and dominate enemys and clans.</p>
 </div>
 </div>
 </section>
 
-<section id="join" class="fade">
-<h2 class="section-title">Join The Fight</h2>
-
+<section id="join">
+<h2 class="section-title">JOIN</h2>
 <div class="cards">
 <div class="card">
 <h3>Discord</h3>
-<p>Join the community to play and chat with others.</p>
-<a class="btn" href="https://discord.gg/DP5CgTvq" target="_blank">Join</a>
+<p>Join the community and find teammates and friends.</p>
+<a class="btn" href="https://discord.gg/DP5CgTvq" target="_blank">Join Discord</a>
 </div>
 
 <div class="card">
-<h3>Updates</h3>
-<p>Wipe Day: 2026.05.00</p>
-</div>
-
-<div class="card">
-<h3>Leaderboard</h3>
-<p>See the best players on the server.</p>
+<h3>Play</h3>
+<p>Connect and start your wipe journey.</p>
+<a class="btn" href="#">Connect</a>
 </div>
 </div>
 </section>
 
 <footer>
-<h3>ECLIPSE RUST © 2026</h3>
+ECLIPSE RUST © 2026
 </footer>
-
-<script>
-const fades = document.querySelectorAll(".fade");
-
-function reveal(){
-    fades.forEach(el=>{
-        const top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight - 120){
-            el.classList.add("show");
-        }
-    });
-}
-
-window.addEventListener("scroll", reveal);
-reveal();
-</script>
 
 </body>
 </html>
