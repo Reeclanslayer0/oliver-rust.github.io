@@ -1,19 +1,331 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oliver Rust</title>
+
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
 body{
-  background:#111;
-  color:lime;
-  font-family:Arial;
-  text-align:center;
-  padding-top:100px;
+    font-family:Arial, sans-serif;
+    background:#0b0b0b;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{
+    width:10px;
+}
+::-webkit-scrollbar-thumb{
+    background:#ff7b00;
+    border-radius:10px;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(12px);
+    padding:15px 0;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    list-style:none;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:16px;
+    transition:.3s;
+    letter-spacing:1px;
+}
+
+nav a:hover{
+    color:#ff7b00;
+}
+
+/* HERO (NO IMAGE) */
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:linear-gradient(135deg,#0b0b0b,#141414,#0b0b0b);
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:radial-gradient(circle,rgba(255,123,0,.25),transparent 70%);
+    filter:blur(20px);
+}
+
+.hero h1{
+    font-size:80px;
+    color:#ff7b00;
+    text-shadow:0 0 25px #ff7b00;
+    letter-spacing:6px;
+    animation:glow 2.5s infinite alternate;
+    position:relative;
+}
+
+.hero p{
+    font-size:20px;
+    margin-top:15px;
+    color:#ccc;
+    position:relative;
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px #ff7b00; }
+    to{ text-shadow:0 0 35px #ff7b00, 0 0 70px #ff7b00; }
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    background:#ff7b00;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    transition:.3s;
+    font-weight:bold;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    background:#ff9a3d;
+}
+
+/* SECTIONS */
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    font-size:42px;
+    color:#ff7b00;
+    margin-bottom:40px;
+    text-align:center;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#151515;
+    padding:25px;
+    border-radius:18px;
+    transition:.4s;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+    border:1px solid rgba(255,123,0,.08);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(255,123,0,.25);
+}
+
+.card h3{
+    color:#ff7b00;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#bbb;
+    line-height:1.5;
+}
+
+/* PARALLAX (NO IMAGE VERSION) */
+.parallax{
+    height:50vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:linear-gradient(135deg,#111,#000,#111);
+    position:relative;
+    overflow:hidden;
+}
+
+.parallax::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,rgba(255,123,0,.15),transparent 70%);
+    filter:blur(30px);
+}
+
+.parallax h2{
+    font-size:60px;
+    color:white;
+    text-shadow:0 0 20px black;
+    position:relative;
+}
+
+/* FADE IN */
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:40px;
+    background:black;
+    color:#777;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .hero h1{ font-size:45px; }
+    .parallax h2{ font-size:32px; }
+    .section-title{ font-size:30px; }
+    nav ul{ gap:20px; }
 }
 </style>
 </head>
+
 <body>
-<h1>Oliver Rust</h1>
-<p>My free website is online.</p>
+
+<nav>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#weapons">Weapons</a></li>
+<li><a href="#join">Join</a></li>
+</ul>
+</nav>
+
+<div class="hero">
+<div>
+<h1>OLIVER RUST</h1>
+<p>Survive. Build. Raid. Dominate.</p>
+<a class="btn" href="#about">ENTER</a>
+</div>
+</div>
+
+<section id="about" class="fade">
+<h2 class="section-title">About</h2>
+
+<div class="cards">
+<div class="card">
+<h3>Massive World</h3>
+<p>Explore a harsh survival world filled with danger, loot, and hidden bases.</p>
+</div>
+
+<div class="card">
+<h3>Base Building</h3>
+<p>Build, upgrade, and defend your base from raids and enemy clans.</p>
+</div>
+
+<div class="card">
+<h3>Real PvP</h3>
+<p>Fight real players in intense combat where every decision matters.</p>
+</div>
+</div>
+</section>
+
+<div class="parallax">
+<h2>WELCOME TO THE WASTELAND</h2>
+</div>
+
+<section id="weapons" class="fade">
+<h2 class="section-title">Weapons</h2>
+
+<div class="cards">
+<div class="card">
+<h3>Rifles</h3>
+<p>High damage weapons for mid and long range fights.</p>
+</div>
+
+<div class="card">
+<h3>Gear</h3>
+<p>Armor, tools, and survival equipment for every situation.</p>
+</div>
+
+<div class="card">
+<h3>Explosives</h3>
+<p>Breach enemy bases and dominate raids.</p>
+</div>
+</div>
+</section>
+
+<section id="join" class="fade">
+<h2 class="section-title">Join The Fight</h2>
+
+<div class="cards">
+<div class="card">
+<h3>Discord</h3>
+<p>Join the community and play with others.</p>
+<a class="btn" href="https://discord.gg/DP5CgTvq" target="_blank">Join</a>
+</div>
+
+<div class="card">
+<h3>Updates</h3>
+<p>New content, weapons, and features coming soon.</p>
+<a class="btn" href="#">News</a>
+</div>
+
+<div class="card">
+<h3>Leaderboard</h3>
+<p>See the strongest players on the server.</p>
+<a class="btn" href="#">Stats</a>
+</div>
+</div>
+</section>
+
+<footer>
+<h3>OLIVER RUST © 2026</h3>
+</footer>
+
+<script>
+const fades = document.querySelectorAll(".fade");
+
+function reveal(){
+    fades.forEach(el=>{
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 120){
+            el.classList.add("show");
+        }
+    });
+}
+
+window.addEventListener("scroll", reveal);
+reveal();
+</script>
+
 </body>
 </html>
