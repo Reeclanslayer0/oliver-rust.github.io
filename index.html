@@ -37,7 +37,7 @@ nav{
     z-index:999;
     background:rgba(0,0,0,.65);
     backdrop-filter:blur(12px);
-    padding:15px 0;
+    padding:12px 0;
 }
 
 nav ul{
@@ -50,7 +50,7 @@ nav ul{
 nav a{
     color:#ddd;
     text-decoration:none;
-    font-size:16px;
+    font-size:15px;
     transition:.3s;
     letter-spacing:1px;
 }
@@ -59,9 +59,9 @@ nav a:hover{
     color:#ff7b00;
 }
 
-/* HERO (NO IMAGE) */
+/* HERO (SMALLER + CLEANER) */
 .hero{
-    height:100vh;
+    height:70vh;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -73,38 +73,38 @@ nav a:hover{
 .hero::before{
     content:"";
     position:absolute;
-    width:400px;
-    height:400px;
-    background:radial-gradient(circle,rgba(255,123,0,.25),transparent 70%);
-    filter:blur(20px);
+    width:350px;
+    height:350px;
+    background:radial-gradient(circle,rgba(255,123,0,.20),transparent 70%);
+    filter:blur(25px);
 }
 
 .hero h1{
-    font-size:80px;
+    font-size:65px;
     color:#ff7b00;
-    text-shadow:0 0 25px #ff7b00;
-    letter-spacing:6px;
+    text-shadow:0 0 20px #ff7b00;
+    letter-spacing:5px;
     animation:glow 2.5s infinite alternate;
     position:relative;
 }
 
 .hero p{
-    font-size:20px;
-    margin-top:15px;
+    font-size:18px;
+    margin-top:10px;
     color:#ccc;
     position:relative;
 }
 
 @keyframes glow{
     from{ text-shadow:0 0 10px #ff7b00; }
-    to{ text-shadow:0 0 35px #ff7b00, 0 0 70px #ff7b00; }
+    to{ text-shadow:0 0 30px #ff7b00, 0 0 60px #ff7b00; }
 }
 
 /* BUTTON */
 .btn{
     display:inline-block;
-    margin-top:25px;
-    padding:14px 30px;
+    margin-top:18px;
+    padding:12px 26px;
     background:#ff7b00;
     color:white;
     text-decoration:none;
@@ -120,26 +120,26 @@ nav a:hover{
 
 /* SECTIONS */
 section{
-    padding:100px 10%;
+    padding:80px 10%;
 }
 
 .section-title{
-    font-size:42px;
+    font-size:38px;
     color:#ff7b00;
-    margin-bottom:40px;
+    margin-bottom:35px;
     text-align:center;
 }
 
 /* CARDS */
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
 }
 
 .card{
     background:#151515;
-    padding:25px;
+    padding:22px;
     border-radius:18px;
     transition:.4s;
     box-shadow:0 0 15px rgba(0,0,0,.4);
@@ -153,7 +153,7 @@ section{
 
 .card h3{
     color:#ff7b00;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 .card p{
@@ -161,9 +161,9 @@ section{
     line-height:1.5;
 }
 
-/* PARALLAX (NO IMAGE VERSION) */
+/* PARALLAX */
 .parallax{
-    height:50vh;
+    height:40vh;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -176,20 +176,20 @@ section{
 .parallax::before{
     content:"";
     position:absolute;
-    width:500px;
-    height:500px;
+    width:400px;
+    height:400px;
     background:radial-gradient(circle,rgba(255,123,0,.15),transparent 70%);
     filter:blur(30px);
 }
 
 .parallax h2{
-    font-size:60px;
+    font-size:48px;
     color:white;
     text-shadow:0 0 20px black;
     position:relative;
 }
 
-/* FADE IN */
+/* FADE */
 .fade{
     opacity:0;
     transform:translateY(40px);
@@ -204,16 +204,16 @@ section{
 /* FOOTER */
 footer{
     text-align:center;
-    padding:40px;
+    padding:35px;
     background:black;
     color:#777;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-    .hero h1{ font-size:45px; }
-    .parallax h2{ font-size:32px; }
-    .section-title{ font-size:30px; }
+    .hero h1{ font-size:42px; }
+    .parallax h2{ font-size:30px; }
+    .section-title{ font-size:28px; }
     nav ul{ gap:20px; }
 }
 </style>
@@ -231,9 +231,8 @@ footer{
 
 <div class="hero">
 <div>
-<h1>OLIVER RUST</h1>
+<h1>ECLIPSE RUST</h1>
 <p>Survive. Build. Raid. Dominate.</p>
-<a class="btn" href="#about">ENTER</a>
 </div>
 </div>
 
@@ -243,18 +242,18 @@ footer{
 <div class="cards">
 <div class="card">
 <h3>Big Map</h3>
-<p>Explore,Raid,PvP,PvE,Loot.</p>
+<p>Explore, raid, PvP, PvE, and loot across a massive survival world.</p>
 </div>
 
 <div class="card">
 <h3>Real PvP</h3>
-<p>Fight real players and Npcs in intense combat.</p>
+<p>Fight real players in intense combat and dominate the server.</p>
 </div>
 </div>
 </section>
 
 <div class="parallax">
-<h2>WELCOME TO Eclipse Rust.</h2>
+<h2>WELCOME TO ECLIPSE RUST</h2>
 </div>
 
 <section id="weapons" class="fade">
@@ -262,13 +261,13 @@ footer{
 
 <div class="cards">
 <div class="card">
-<h3>Guns/Items</h3>
-<p>item skins or free only this server</p>
+<h3>Guns & Items</h3>
+<p>Balanced weapons, skins, and loot systems.</p>
 </div>
 
 <div class="card">
 <h3>Explosives</h3>
-<p>who has the most Explosives?</p>
+<p>Raid bases and control the battlefield.</p>
 </div>
 </div>
 </section>
@@ -285,8 +284,7 @@ footer{
 
 <div class="card">
 <h3>Updates</h3>
-<p>Wipe Day: 2026.05.00 Coming soon.</p>
-<a class="btn" href="#">News</a>
+<p>Wipe Day: 2026.05.00</p>
 </div>
 
 <div class="card">
@@ -297,7 +295,7 @@ footer{
 </section>
 
 <footer>
-<h3>OLIVER RUST © 2026-2027</h3>
+<h3>ECLIPSE RUST © 2026</h3>
 </footer>
 
 <script>
